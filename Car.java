@@ -1,20 +1,36 @@
 public class Car extends Vehicle {
+    private int fuelCapacity; // емкость топливного бака
+    private int currentFuelLevel; //текущий уровень топлива
 
-    public Car(int id, String brand, String model, int year) {
+    public Car(int id, String brand, String model, int year, int fuelCapacity, int currentFuelLevel) {
         super(id, brand, model, year);
+        this.fuelCapacity = fuelCapacity;
+        this.currentFuelLevel = currentFuelLevel;
     }
 
     @Override
     void displayInfo() {
-        //System.out.println("Используемое транспортное средство:\n" + id + ",\n" + brand + ",\n" + model + ",\n" + year);
+        System.out.println("-------------------");
+        System.out.println("Используемое транспортное средство:\n"  + "id: " + getId() 
+        + ",\n" + "марка: " + getBrand() 
+        + ",\n" + "модель: " + getModel() 
+        + ",\n" + "год выпуска(г): " + getYear() 
+        + ",\n" + "емкость топливного бака(л): " + fuelCapacity
+        + ",\n" + "текущий уровень топлива(л): " + currentFuelLevel);
+        System.out.println();
     }
 
-    // Добавляет свойства: int fuelCapacity (емкость топливного бака), int currentFuelLevel (текущий уровень топлива).
     // Реализует методы:
-    // void startEngine() - запуск двигателя автомобиля.
-    // void stopEngine() - остановка двигателя автомобиля.
-    // void accelerate(int speed) - увеличение скорости автомобиля на указанное значение.
-    // void brake() - прекращение движения автомобиля.
-    // void refuel(int liters) - заправка автомобиля (увеличение уровня топлива).
-    
+    // увеличение скорости автомобиля на указанное значение.
+    public void accelerate(int speed){
+        System.out.println("Скорость увеличена на " + speed + " км/ч");
+    }
+    // прекращение движения автомобиля.
+    public void brake(){
+        System.out.println("Прекращение движения");
+    }
+    // заправка автомобиля (увеличение уровня топлива).
+    public void refuel(int liters){
+        System.out.println("Вы заправили топливный бак на " + liters + " литров");
+    }
 }

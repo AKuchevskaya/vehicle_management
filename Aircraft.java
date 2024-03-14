@@ -1,20 +1,32 @@
-public class Aircraft extends Vehicle{
+public class Aircraft extends Vehicle implements Flyable{
+    int maxAltitude; //максимальная высота полета
+    boolean isFlying; // флаг состояния полета
 
-    public Aircraft(int id, String brand, String model, int year) {
+    public Aircraft(int id, String brand, String model, int year, int maxAltitude, boolean isFlying) {
         super(id, brand, model, year);
+        this.maxAltitude = maxAltitude;
+        this.isFlying = isFlying;
     }
-    // Реализует методы интерфейса Flyable.
-    // Добавляет свойства: int maxAltitude (максимальная высота полета), boolean isFlying (флаг состояния полета).
-    // Реализует методы:
-    // void startEngine() - запуск двигателя самолета.
-    // void stopEngine() - остановка двигателя самолета.
-    // void takeOff() - взлет самолета.
-    // void land() - посадка самолета.
 
     @Override
     void displayInfo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'displayInfo'");
+        System.out.println("-------------------");
+        System.out.println("Используемое транспортное средство:\n" + "id: " + getId() 
+        + ",\n" + "марка: " + getBrand()
+        + ",\n" + "модель: " + getModel()
+        + ",\n" + "год выпуска(г): " + getYear()
+        + ",\n" + "максимальная высота полета(м): " + maxAltitude
+        + ",\n" + "флаг состояния полета: " + isFlying);
+        System.out.println();
     }
-    
+
+    @Override
+    public void startEngine(){
+        System.out.println("Запуск двигателя самолета");
+    }
+
+    @Override
+    public void stopEngine(){
+        System.out.println("Остановка двигателя самолета");
+    }
 }
